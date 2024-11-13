@@ -11,7 +11,75 @@ namespace VeteClini.Pages
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            // Verifica si es la primera carga de la página.
+            if (!IsPostBack)
+            {
+                // Inicialización de datos si es necesario.
+            }
+        }
 
+        // Método para agregar un historial clínico
+        protected void agregarHistorialClinico()
+        {
+            DateTime fechaVisita = DateTime.Parse(txtFechaVisita.Value);
+            string sintomas = txtSintomas.Value;
+            string diagnostico = txtDiagnostico.Value;
+            string tratamiento = txtTratamiento.Value;
+            string veterinario = txtVeterinario.Value;
+            string mascotaId = txtMascotaID.Value;
+            string adicionadoPor = txtAdicionadoPor.Value;
+
+            bool agregado = HistorialService.Agregar(fechaVisita, sintomas, diagnostico, tratamiento, veterinario, mascotaId, adicionadoPor);
+
+            if (agregado)
+            {
+                Response.Write("<script>alert('Historial clínico agregado correctamente');</script>");
+            }
+            else
+            {
+                Response.Write("<script>alert('Error al agregar el historial clínico');</script>");
+            }
+        }
+
+        // Método para eliminar un historial clínico
+        protected void eliminarHistorialClinico()
+        {
+            string historialId = txtHistorialIDEliminar.Value;
+
+            bool eliminado = HistorialService.Eliminar(historialId);
+
+            if (eliminado)
+            {
+                Response.Write("<script>alert('Historial clínico eliminado correctamente');</script>");
+            }
+            else
+            {
+                Response.Write("<script>alert('Error al eliminar el historial clínico');</script>");
+            }
+        }
+
+        // Método para actualizar un historial clínico
+        protected void actualizarHistorialClinico()
+        {
+            string historialId = txtHistorialIDActualizar.Value;
+            DateTime fechaVisita = DateTime.Parse(txtFechaVisitaActualizar.Value);
+            string sintomas = txtSintomasActualizar.Value;
+            string diagnostico = txtDiagnosticoActualizar.Value;
+            string tratamiento = txtTratamientoActualizar.Value;
+            string veterinario = txtVeterinarioActualizar.Value;
+            string mascotaId = txtMascotaIDActualizar.Value;
+            string modificadoPor = txtModificadoPor.Value;
+
+            bool actualizado = HistorialService.Actualizar(historialId, fechaVisita, sintomas, diagnostico, tratamiento, veterinario, mascotaId, modificadoPor);
+
+            if (actualizado)
+            {
+                Response.Write("<script>alert('Historial clínico actualizado correctamente');</script>");
+            }
+            else
+            {
+                Response.Write("<script>alert('Error al actualizar el historial clínico');</script>");
+            }
         }
     }
 }
