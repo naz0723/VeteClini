@@ -5,22 +5,22 @@ using System.Data;
 using System.Linq;
 using System.Web;
 
-namespace VeteClini.app_code
+namespace VeteClini.Pages
 {
-    public class Mascota
+    public class clsMascota
     {
         public static DatabaseHelper dh = new DatabaseHelper();
 
         /// <summary>
-        /// Este método agrega una nueva mascota utilizando el procedimiento almacenado sp_CrearMascota.
+        /// Este método agrega una nueva Mascota utilizando el procedimiento almacenado sp_CrearMascota.
         /// </summary>
-        /// <param name="nombre">Nombre de la mascota.</param>
-        /// <param name="especie">Especie de la mascota.</param>
-        /// <param name="raza">Raza de la mascota.</param>
-        /// <param name="fechaNacimiento">Fecha de nacimiento de la mascota.</param>
-        /// <param name="color">Color de la mascota.</param>
-        /// <param name="peso">Peso de la mascota.</param>
-        /// <param name="duenoID">ID del dueño de la mascota.</param>
+        /// <param name="nombre">Nombre de la Mascota.</param>
+        /// <param name="especie">Especie de la Mascota.</param>
+        /// <param name="raza">Raza de la Mascota.</param>
+        /// <param name="fechaNacimiento">Fecha de nacimiento de la Mascota.</param>
+        /// <param name="color">Color de la Mascota.</param>
+        /// <param name="peso">Peso de la Mascota.</param>
+        /// <param name="duenoID">ID del dueño de la Mascota.</param>
         /// <param name="adicionadoPor">Usuario que adiciona el registro.</param>
         /// <returns>Verdadero si el registro se insertó exitosamente, falso de lo contrario.</returns>
         public static bool AgregarMascota(string nombre, string especie, string raza, DateTime fechaNacimiento, string color, decimal peso, int duenoID, string adicionadoPor)
@@ -58,18 +58,18 @@ namespace VeteClini.app_code
         }
 
         /// <summary>
-        /// Este método actualiza la información de una mascota existente utilizando el procedimiento almacenado sp_ActualizarMascota.
+        /// Este método actualiza la información de una Mascota existente utilizando el procedimiento almacenado sp_ActualizarMascota.
         /// </summary>
-        /// <param name="mascotaID">ID de la mascota a actualizar.</param>
-        /// <param name="nombre">Nombre actualizado de la mascota.</param>
-        /// <param name="especie">Especie actualizada de la mascota.</param>
-        /// <param name="raza">Raza actualizada de la mascota.</param>
-        /// <param name="fechaNacimiento">Fecha de nacimiento actualizada de la mascota.</param>
-        /// <param name="color">Color actualizado de la mascota.</param>
-        /// <param name="peso">Peso actualizado de la mascota.</param>
+        /// <param name="MascotaID">ID de la Mascota a actualizar.</param>
+        /// <param name="nombre">Nombre actualizado de la Mascota.</param>
+        /// <param name="especie">Especie actualizada de la Mascota.</param>
+        /// <param name="raza">Raza actualizada de la Mascota.</param>
+        /// <param name="fechaNacimiento">Fecha de nacimiento actualizada de la Mascota.</param>
+        /// <param name="color">Color actualizado de la Mascota.</param>
+        /// <param name="peso">Peso actualizado de la Mascota.</param>
         /// <param name="modificadoPor">Usuario que modifica el registro.</param>
         /// <returns>Verdadero si el registro se actualizó exitosamente, falso de lo contrario.</returns>
-        public static bool ActualizarMascota(int mascotaID, string nombre, string especie, string raza, DateTime fechaNacimiento, string color, decimal peso, string modificadoPor)
+        public static bool ActualizarMascota(int MascotaID, string nombre, string especie, string raza, DateTime fechaNacimiento, string color, decimal peso, string modificadoPor)
         {
             try
             {
@@ -79,7 +79,7 @@ namespace VeteClini.app_code
                 // Crear los parámetros requeridos por el procedimiento almacenado
                 SqlParameter[] sqlParameters = new SqlParameter[]
                 {
-                new SqlParameter("@MascotaID", SqlDbType.Int) { Value = mascotaID },
+                new SqlParameter("@MascotaID", SqlDbType.Int) { Value = MascotaID },
                 new SqlParameter("@Nombre", SqlDbType.NVarChar, 50) { Value = nombre },
                 new SqlParameter("@Especie", SqlDbType.NVarChar, 50) { Value = especie },
                 new SqlParameter("@Raza", SqlDbType.NVarChar, 50) { Value = raza },
@@ -104,11 +104,11 @@ namespace VeteClini.app_code
         }
 
         /// <summary>
-        /// Este método elimina una mascota utilizando el procedimiento almacenado sp_EliminarMascota.
+        /// Este método elimina una Mascota utilizando el procedimiento almacenado sp_EliminarMascota.
         /// </summary>
-        /// <param name="mascotaID">ID de la mascota a eliminar.</param>
+        /// <param name="MascotaID">ID de la Mascota a eliminar.</param>
         /// <returns>Verdadero si el registro se eliminó exitosamente, falso de lo contrario.</returns>
-        public static bool EliminarMascota(int mascotaID)
+        public static bool EliminarMascota(int MascotaID)
         {
             try
             {
@@ -118,7 +118,7 @@ namespace VeteClini.app_code
                 // Crear los parámetros requeridos por el procedimiento almacenado
                 SqlParameter[] sqlParameters = new SqlParameter[]
                 {
-                new SqlParameter("@MascotaID", SqlDbType.Int) { Value = mascotaID }
+                new SqlParameter("@MascotaID", SqlDbType.Int) { Value = MascotaID }
                 };
 
                 // Ejecutar el procedimiento almacenado usando DatabaseHelper
@@ -136,4 +136,3 @@ namespace VeteClini.app_code
         }
     }
 }
-    

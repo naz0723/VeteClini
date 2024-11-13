@@ -18,19 +18,20 @@ namespace VeteClini.Pages
             }
         }
 
-        // Método para agregar una mascota
-        protected void agregarMascota()
+        // Método para AgregarMascota una Mascota
+        protected void Agregar()
         {
             string nombre = txtNombre.Value;
             string especie = txtEspecie.Value;
             string raza = txtRaza.Value;
             DateTime fechaNacimiento = DateTime.Parse(txtFechaNacimiento.Value);
             string color = txtColor.Value;
-            double peso = double.Parse(txtPeso.Value);
+            decimal peso = decimal.Parse(txtPeso.Value);
             string dueñoId = txtDuenoID.Value;
             string adicionadoPor = txtAdicionadoPor.Value;
 
-            bool agregado = MascotaService.Agregar(nombre, especie, raza, fechaNacimiento, color, peso, dueñoId, adicionadoPor);
+            bool agregado = clsMascota.AgregarMascota(nombre, especie, raza, fechaNacimiento, color, peso, 
+                Convert.ToInt32(dueñoId), adicionadoPor);
 
             if (agregado)
             {
@@ -38,16 +39,16 @@ namespace VeteClini.Pages
             }
             else
             {
-                Response.Write("<script>alert('Hubo un error al agregar la mascota');</script>");
+                Response.Write("<script>alert('Hubo un error al AgregarMascota la Mascota');</script>");
             }
         }
 
-        // Método para eliminar una mascota
+        // Método para eliminar una Mascota
         protected void eliminarMascota()
         {
-            string mascotaId = txtMascotaIDEliminar.Value;
+            string MascotaId = txtMascotaIDEliminar.Value;
 
-            bool eliminado = MascotaService.Eliminar(mascotaId);
+            bool eliminado = clsMascota.EliminarMascota(Convert.ToInt32(MascotaId));
 
             if (eliminado)
             {
@@ -55,23 +56,23 @@ namespace VeteClini.Pages
             }
             else
             {
-                Response.Write("<script>alert('Hubo un error al eliminar la mascota');</script>");
+                Response.Write("<script>alert('Hubo un error al eliminar la Mascota');</script>");
             }
         }
 
-        // Método para actualizar una mascota
+        // Método para actualizar una Mascota
         protected void actualizarMascota()
         {
-            string mascotaId = txtMascotaIDActualizar.Value;
+            string MascotaId = txtMascotaIDActualizar.Value;
             string nombre = txtNombreActualizar.Value;
             string especie = txtEspecieActualizar.Value;
             string raza = txtRazaActualizar.Value;
             DateTime fechaNacimiento = DateTime.Parse(txtFechaNacimientoActualizar.Value);
             string color = txtColorActualizar.Value;
-            double peso = double.Parse(txtPesoActualizar.Value);
+            decimal peso = decimal.Parse(txtPesoActualizar.Value);
             string modificadoPor = txtModificadoPor.Value;
 
-            bool actualizado = MascotaService.Actualizar(mascotaId, nombre, especie, raza, fechaNacimiento, color, peso, modificadoPor);
+            bool actualizado = clsMascota.ActualizarMascota(Convert.ToInt32(MascotaId), nombre, especie, raza, fechaNacimiento, color, peso, modificadoPor);
 
             if (actualizado)
             {
@@ -79,7 +80,7 @@ namespace VeteClini.Pages
             }
             else
             {
-                Response.Write("<script>alert('Hubo un error al actualizar la mascota');</script>");
+                Response.Write("<script>alert('Hubo un error al actualizar la Mascota');</script>");
             }
         }
     }

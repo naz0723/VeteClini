@@ -13,10 +13,10 @@
         <h2>Login</h2>
         <form id="form1" runat="server" method="post">
             <label for="username">Usuario:</label>
-            <input type="text" id="username" name="user" runat="server" required>
+            <input type="text" id="username" name="username" runat="server" required>
 
             <label for="password">Contraseña:</label>
-            <input type="password" id="password" name="pass" runat="server" required>
+            <input type="password" id="password" name="password" runat="server" required>
             <br />
             <button type="submit" runat="server" onserverclick="btnLogin_Click">Iniciar sesión</button>
         </form>

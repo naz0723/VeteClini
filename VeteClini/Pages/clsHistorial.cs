@@ -5,9 +5,9 @@ using System.Data;
 using System.Linq;
 using System.Web;
 
-namespace VeteClini.app_code
+namespace VeteClini.Pages
 {
-    public class HistorialClinico
+    public class clsHistorial
     {
         public static DatabaseHelper dh = new DatabaseHelper();
 
@@ -15,7 +15,7 @@ namespace VeteClini.app_code
         /// <summary>
         /// Este método agrega un nuevo historial clínico utilizando el procedimiento almacenado sp_CrearHistorialClinico.
         /// </summary>
-        public static bool AgregarHistorialClinico(DateTime fechaVisita, string sintomas, string diagnostico, string tratamiento, string veterinario, int mascotaID, string adicionadoPor)
+        public static bool AgregarHistorialClinico(DateTime fechaVisita, string sintomas, string diagnostico, string tratamiento, string veterinario, int MascotaID, string adicionadoPor)
         {
             try
             {
@@ -28,7 +28,7 @@ namespace VeteClini.app_code
                 new SqlParameter("@Diagnostico", SqlDbType.NVarChar, 250) { Value = diagnostico },
                 new SqlParameter("@Tratamiento", SqlDbType.NVarChar, 250) { Value = tratamiento },
                 new SqlParameter("@Veterinario", SqlDbType.NVarChar, 100) { Value = veterinario },
-                new SqlParameter("@MascotaID", SqlDbType.Int) { Value = mascotaID },
+                new SqlParameter("@MascotaID", SqlDbType.Int) { Value = MascotaID },
                 new SqlParameter("@AdicionadoPor", SqlDbType.NVarChar, 50) { Value = adicionadoPor }
                 };
 
@@ -45,7 +45,7 @@ namespace VeteClini.app_code
         /// <summary>
         /// Este método actualiza un historial clínico existente utilizando el procedimiento almacenado sp_ActualizarHistorialClinico.
         /// </summary>
-        public static bool ActualizarHistorialClinico(int historialID, DateTime fechaVisita, string sintomas, string diagnostico, string tratamiento, string veterinario, int mascotaID, string modificadoPor)
+        public static bool ActualizarHistorialClinico(int historialID, DateTime fechaVisita, string sintomas, string diagnostico, string tratamiento, string veterinario, int MascotaID, string modificadoPor)
         {
             try
             {
@@ -59,7 +59,7 @@ namespace VeteClini.app_code
                 new SqlParameter("@Diagnostico", SqlDbType.NVarChar, 250) { Value = diagnostico },
                 new SqlParameter("@Tratamiento", SqlDbType.NVarChar, 250) { Value = tratamiento },
                 new SqlParameter("@Veterinario", SqlDbType.NVarChar, 100) { Value = veterinario },
-                new SqlParameter("@MascotaID", SqlDbType.Int) { Value = mascotaID },
+                new SqlParameter("@MascotaID", SqlDbType.Int) { Value = MascotaID },
                 new SqlParameter("@ModificadoPor", SqlDbType.NVarChar, 50) { Value = modificadoPor }
                 };
 

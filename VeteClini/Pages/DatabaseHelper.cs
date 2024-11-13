@@ -7,9 +7,9 @@ using System.IO;
 using System.Linq;
 using System.Web;
 
-namespace VeteClini.app_code
+namespace VeteClini.Pages
 {
-    public class ConecionBD
+    public class DatabaseHelper
     {
         /// <summary>
         /// Este método es responsable de obtener la cadena de conexión para la base de datos.<br />
@@ -35,7 +35,7 @@ namespace VeteClini.app_code
         /// </summary> 
         public void LogError(Exception ex)
         {
-            string logFilePath = @"D:\Error_VetSOS\database_errors.log";// Ubicación y nombre del archivo de log
+            string logFilePath = @"C:\Error_VetSOS\database_errors.log";// Ubicación y nombre del archivo de log
 
             using (StreamWriter writer = new StreamWriter(logFilePath, true)) // 'true' para agregar al final del archivo
             {
@@ -126,4 +126,3 @@ namespace VeteClini.app_code
         }
     }
 }
-    

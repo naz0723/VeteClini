@@ -18,8 +18,8 @@ namespace VeteClini.Pages
         protected void btnLogin_Click(object sender, EventArgs e)
         {
             // Captura los datos de usuario y contraseña
-            string usuario = username.Value;
-            string contraseña = password.Value;
+            string usuario = "admin";// username.Value;
+            string contraseña = "admin123";// password.Value;
 
             // Realiza la validación de las credenciales
             bool autenticado = AutenticarUsuario(usuario, contraseña);
@@ -27,7 +27,7 @@ namespace VeteClini.Pages
             if (autenticado)
             {
                 // Redirecciona a la página principal si las credenciales son correctas
-                Response.Redirect("HomePage.aspx");
+                Response.Redirect("Prueabaspx.aspx");
             }
             else
             {
@@ -43,7 +43,7 @@ namespace VeteClini.Pages
             // return UsuarioService.ValidarCredenciales(usuario, contraseña);
 
             // Para fines de prueba, se simula una autenticación simple
-            if (usuario == "admin" && contraseña == "1234")
+            if (usuario == "admin" && contraseña == "admin123")
             {
                 return true;
             }

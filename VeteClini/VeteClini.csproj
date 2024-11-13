@@ -71,15 +71,17 @@
     <Content Include="Pages\HistorialClinico.aspx" />
     <Content Include="Pages\Login.aspx" />
     <Content Include="Pages\Mascota.aspx" />
+    <Content Include="Pages\Prueabaspx.aspx" />
     <Content Include="Styles\HojaEstilos.css" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="app_code\Dueño.cs" />
-    <Content Include="app_code\HistorialClinico.cs" />
-    <Content Include="app_code\Mascota.cs" />
-    <Content Include="app_code\Usuarios.cs" />
-    <Content Include="app_code\DatabaseHelper.cs" />
+    <Content Include="Pages\Historial.cs" />
+    <Content Include="Pages\Usuarios.cs" />
+    <Compile Include="Pages\clsDueño.cs" />
+    <Compile Include="Pages\clsHistorial.cs" />
+    <Compile Include="Pages\clsMascota.cs" />
+    <Compile Include="Pages\DatabaseHelper.cs" />
     <Compile Include="Pages\Dueño.aspx.cs">
       <DependentUpon>Dueño.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -108,6 +110,13 @@
     <Compile Include="Pages\Mascota.aspx.designer.cs">
       <DependentUpon>Mascota.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Pages\Prueabaspx.aspx.cs">
+      <DependentUpon>Prueabaspx.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Prueabaspx.aspx.designer.cs">
+      <DependentUpon>Prueabaspx.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -120,6 +129,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="app_code\" />
     <Folder Include="app_Data\" />
   </ItemGroup>
   <PropertyGroup>

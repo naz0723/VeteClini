@@ -5,16 +5,16 @@ using System.Data;
 using System.Linq;
 using System.Web;
 
-namespace VeteClini.app_code
+namespace VeteClini.Pages
 {
-    public class Dueño
+    public class clsDueño
     {
         public static DatabaseHelper dh = new DatabaseHelper();
 
         /// <summary>
         /// Este método agrega un nuevo dueño utilizando el procedimiento almacenado sp_CrearDueño.
         /// </summary>
-        public static bool AgregarDueño(string nombre, string apellido, string direccion, string telefono, string email, string identificacion, string adicionadoPor)
+        public static bool Agregar(string nombre, string apellido, string direccion, string telefono, string email, string identificacion, string adicionadoPor)
         {
             try
             {
@@ -44,7 +44,7 @@ namespace VeteClini.app_code
         /// <summary>
         /// Este método actualiza un dueño existente utilizando el procedimiento almacenado sp_ActualizarDueño.
         /// </summary>
-        public static bool ActualizarDueño(int dueñoID, string nombre, string apellido, string direccion, string telefono, string email, string identificacion, string modificadoPor)
+        public static bool Actualizar(int dueñoID, string nombre, string apellido, string direccion, string telefono, string email, string identificacion, string modificadoPor)
         {
             try
             {
@@ -75,7 +75,7 @@ namespace VeteClini.app_code
         /// <summary>
         /// Este método elimina un dueño existente utilizando el procedimiento almacenado sp_EliminarDueño.
         /// </summary>
-        public static bool EliminarDueño(int dueñoID)
+        public static bool Eliminar(int dueñoID)
         {
             try
             {
@@ -97,6 +97,3 @@ namespace VeteClini.app_code
         }
     }
 }
-
-
-

@@ -9,6 +9,7 @@ namespace VeteClini.Pages
 {
     public partial class HistorialClinico : System.Web.UI.Page
     {
+         
         protected void Page_Load(object sender, EventArgs e)
         {
             // Verifica si es la primera carga de la página.
@@ -26,10 +27,10 @@ namespace VeteClini.Pages
             string diagnostico = txtDiagnostico.Value;
             string tratamiento = txtTratamiento.Value;
             string veterinario = txtVeterinario.Value;
-            string mascotaId = txtMascotaID.Value;
+            string MascotaId = txtMascotaID.Value;
             string adicionadoPor = txtAdicionadoPor.Value;
 
-            bool agregado = HistorialService.Agregar(fechaVisita, sintomas, diagnostico, tratamiento, veterinario, mascotaId, adicionadoPor);
+            bool agregado = clsHistorial.AgregarHistorialClinico(fechaVisita, sintomas, diagnostico, tratamiento, veterinario, Convert.ToInt32(MascotaId), adicionadoPor);
 
             if (agregado)
             {
@@ -44,9 +45,9 @@ namespace VeteClini.Pages
         // Método para eliminar un historial clínico
         protected void eliminarHistorialClinico()
         {
-            string historialId = txtHistorialIDEliminar.Value;
+            int historialId = Convert.ToInt32(txtHistorialIDEliminar.Value) ;
 
-            bool eliminado = HistorialService.Eliminar(historialId);
+            bool eliminado = clsHistorial.EliminarHistorialClinico(historialId);
 
             if (eliminado)
             {
@@ -67,10 +68,10 @@ namespace VeteClini.Pages
             string diagnostico = txtDiagnosticoActualizar.Value;
             string tratamiento = txtTratamientoActualizar.Value;
             string veterinario = txtVeterinarioActualizar.Value;
-            string mascotaId = txtMascotaIDActualizar.Value;
+            string MascotaId = txtMascotaIDActualizar.Value;
             string modificadoPor = txtModificadoPor.Value;
 
-            bool actualizado = HistorialService.Actualizar(historialId, fechaVisita, sintomas, diagnostico, tratamiento, veterinario, mascotaId, modificadoPor);
+            bool actualizado = clsHistorial.ActualizarHistorialClinico(Convert.ToInt32(historialId), fechaVisita, sintomas, diagnostico, tratamiento, veterinario, Convert.ToInt32(MascotaId), modificadoPor);
 
             if (actualizado)
             {

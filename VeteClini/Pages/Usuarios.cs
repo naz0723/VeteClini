@@ -5,7 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Web;
 
-namespace VeteClini.app_code
+namespace VeteClini.Pages
 {
     public class Usuarios
     {

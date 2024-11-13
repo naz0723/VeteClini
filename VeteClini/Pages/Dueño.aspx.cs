@@ -32,9 +32,9 @@ namespace VeteClini.Pages
 
             // Realiza la lógica de inserción a la base de datos aquí
             // Puedes llamar a una clase de servicio o un repositorio
-            bool agregado = DueñoService.Agregar(nombre, apellido, direccion, telefono, email, identificacion, adicionadoPor);
+            bool agregado = clsDueño.Agregar(nombre, apellido, direccion, telefono, email, identificacion, adicionadoPor);
 
-            // Muestra un mensaje de confirmación o error
+           /* // Muestra un mensaje de confirmación o error
             if (agregado)
             {
                 Response.Write("<script>alert('Dueño agregado correctamente');</script>");
@@ -42,7 +42,7 @@ namespace VeteClini.Pages
             else
             {
                 Response.Write("<script>alert('Hubo un error al agregar el dueño');</script>");
-            }
+            }*/
         }
 
         // Método para eliminar un dueño
@@ -50,7 +50,7 @@ namespace VeteClini.Pages
         {
             string dueñoId = txtDueñoIDEliminar.Value;
 
-            bool eliminado = DueñoService.Eliminar(dueñoId);
+           bool eliminado = clsDueño.Eliminar(Convert.ToInt32(dueñoId));
 
             if (eliminado)
             {
@@ -74,7 +74,7 @@ namespace VeteClini.Pages
             string identificacion = txtIdentificacionActualizar.Value;
             string modificadoPor = txtModificadoPor.Value;
 
-            bool actualizado = DueñoService.Actualizar(dueñoId, nombre, apellido, direccion, telefono, email, identificacion, modificadoPor);
+            bool actualizado = clsDueño.Actualizar(Convert.ToInt32(dueñoId), nombre, apellido, direccion, telefono, email, identificacion, modificadoPor);
 
             if (actualizado)
             {
@@ -83,7 +83,7 @@ namespace VeteClini.Pages
             else
             {
                 Response.Write("<script>alert('Hubo un error al actualizar el dueño');</script>");
-            }
+            } 
         }
     }
 }
