@@ -19,7 +19,7 @@ namespace VeteClini.Pages
         }
 
         // Método para agregar un dueño
-        protected void agregarDueño()
+        protected void AgregarDueño_Click(object sender, EventArgs e)
         {
             // Captura los datos ingresados en los controles del formulario
             string nombre = txtNombre.Value;
