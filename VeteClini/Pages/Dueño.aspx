@@ -43,35 +43,35 @@
             <div class="form-section">
                 <h3>Eliminar Dueño</h3>
                 <label for="txtDueñoIDEliminar">ID del Dueño:</label>
-                <input type="text" id="txtDueñoIDEliminar" runat="server" required />
+                <input type="text" id="txtDueñoIDEliminar" runat="server"  />
                 <asp:Button ID="btnEliminar" runat="server" Text="Eliminar Dueño" OnClick="EliminarDueño_Click" />
             </div>
             <!-- Formulario para actualizar un dueño -->
             <div class="form-section">
                 <h3>Actualizar Dueño</h3>
                 <label for="txtDueñoIDActualizar">ID del Dueño:</label>
-                <input type="text" id="txtDueñoIDActualizar" runat="server" required />
+                <input type="text" id="txtDueñoIDActualizar" runat="server"  />
                 
                 <label for="txtNombreActualizar">Nuevo Nombre:</label>
-                <input type="text" id="txtNombreActualizar" runat="server" required />
+                <input type="text" id="txtNombreActualizar" runat="server"  />
 
                 <label for="txtApellidoActualizar">Nuevo Apellido:</label>
-                <input type="text" id="txtApellidoActualizar" runat="server" required />
+                <input type="text" id="txtApellidoActualizar" runat="server"  />
 
                 <label for="txtDireccionActualizar">Nueva Dirección:</label>
-                <input type="text" id="txtDireccionActualizar" runat="server" required />
+                <input type="text" id="txtDireccionActualizar" runat="server"  />
 
                 <label for="txtTelefonoActualizar">Nuevo Teléfono:</label>
-                <input type="text" id="txtTelefonoActualizar" runat="server" required />
+                <input type="text" id="txtTelefonoActualizar" runat="server"  />
 
                 <label for="txtEmailActualizar">Nuevo Correo Electrónico:</label>
-                <input type="email" id="txtEmailActualizar" runat="server" required />
+                <input type="email" id="txtEmailActualizar" runat="server"  />
 
                 <label for="txtIdentificacionActualizar">Nueva Identificación:</label>
-                <input type="text" id="txtIdentificacionActualizar" runat="server" required />
+                <input type="text" id="txtIdentificacionActualizar" runat="server"  />
 
                 <label for="txtModificadoPor">Modificado por:</label>
-                <input type="text" id="txtModificadoPor" runat="server" required />
+                <input type="text" id="txtModificadoPor" runat="server"  />
 
                 <asp:Button ID="btnActualizar" runat="server" Text="Actualizar Dueño" OnClick="ActualizarDueño_Click" />
             </div>
