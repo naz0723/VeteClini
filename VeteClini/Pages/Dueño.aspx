@@ -17,25 +17,25 @@
             <div class="form-section">
                 <h3>Agregar Dueño</h3>
                 <label for="txtNombre">Nombre:</label>
-                <input type="text" id="txtNombre" runat="server" required />
+                <input type="text" id="txtNombre" runat="server"  />
                 
                 <label for="txtApellido">Apellido:</label>
-                <input type="text" id="txtApellido" runat="server" required />
+                <input type="text" id="txtApellido" runat="server"  />
 
                 <label for="txtDireccion">Dirección:</label>
-                <input type="text" id="txtDireccion" runat="server" required />
+                <input type="text" id="txtDireccion" runat="server"  />
 
                 <label for="txtTelefono">Teléfono:</label>
-                <input type="text" id="txtTelefono" runat="server" required />
+                <input type="text" id="txtTelefono" runat="server"  />
 
                 <label for="txtEmail">Correo Electrónico:</label>
-                <input type="email" id="txtEmail" runat="server" required />
+                <input type="email" id="txtEmail" runat="server"  />
 
                 <label for="txtIdentificacion">Identificación:</label>
                 <input type="text" id="txtIdentificacion" runat="server" required />
 
                 <label for="txtAdicionadoPor">Añadido por:</label>
-                <input type="text" id="txtAdicionadoPor" runat="server" required />
+                <input type="text" id="txtAdicionadoPor" runat="server"  />
 
                 <asp:Button ID="btnAgregar" runat="server" Text="Agregar Dueño" OnClick="AgregarDueño_Click" />
             </div>
