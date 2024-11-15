@@ -39,7 +39,7 @@
         <div>
             <label for="txtMascotaID">ID de la Mascota:</label>
             <asp:TextBox ID="txtMascotaID" runat="server"></asp:TextBox>
-        </div>
+        </div> 
         <div>
             <label for="txtAdicionadoPor">Añadido por:</label>
             <asp:TextBox ID="txtAdicionadoPor" runat="server"></asp:TextBox>
