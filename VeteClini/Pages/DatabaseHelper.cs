@@ -89,6 +89,11 @@ namespace VeteClini.Pages
             }
         }
 
+
+
+      
+
+
         /// <summary>
         /// Este método ejecuta una consulta INSERT, UPDATE, o DELETE en la base de datos.<br />
         /// Propósito: Permitir ejecutar consultas de modificación de datos en la base de datos sin devolver resultados.<br />
@@ -122,7 +127,27 @@ namespace VeteClini.Pages
 
         internal int ExecuteNonQuery(string query, SqlParameter[] sqlParameters)
         {
-            throw new NotImplementedException();
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(GetConnectionString()))
+                {
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        if (sqlParameters != null)
+                        {
+                            cmd.Parameters.AddRange(sqlParameters);
+                        }
+                        conn.Open();
+                        return cmd.ExecuteNonQuery(); // Return the number of rows affected
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                LogError(ex);
+                throw; // Re-throw the exception for higher-level handling
+            }
         }
     }
 }

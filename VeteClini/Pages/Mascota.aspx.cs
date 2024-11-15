@@ -29,11 +29,11 @@ namespace VeteClini.Pages
             bool exito = clsMascota.AgregarMascota(nombre, especie, raza, fechaNacimiento, color, peso, duenoID, adicionadoPor);
             if (exito)
             {
-                // Aquí puedes agregar un mensaje de éxito o redirigir a otra página si lo deseas.
+                Response.Write("<script>alert('Mascota agregada con exito');</script>");
             }
             else
             {
-                // Aquí puedes manejar el error (por ejemplo, mostrar un mensaje de error).
+                Response.Write("<script>alert('Error al agregar Mascota');</script>");
             }
         }
 
@@ -52,11 +52,11 @@ namespace VeteClini.Pages
             bool exito = clsMascota.ActualizarMascota(mascotaID, nombre, especie, raza, fechaNacimiento, color, peso, modificadoPor);
             if (exito)
             {
-                // Aquí puedes agregar un mensaje de éxito o redirigir a otra página si lo deseas.
+                Response.Write("<script>alert('Mascota actualizada con exito');</script>");
             }
             else
             {
-                // Aquí puedes manejar el error (por ejemplo, mostrar un mensaje de error).
+                Response.Write("<script>alert('Mascota no actualizada error');</script>");
             }
         }
 
@@ -68,11 +68,11 @@ namespace VeteClini.Pages
             bool exito = clsMascota.EliminarMascota(mascotaID);
             if (exito)
             {
-                // Aquí puedes agregar un mensaje de éxito o redirigir a otra página si lo deseas.
+                Response.Write("<script>alert('Mascota Eliminada con exito');</script>");
             }
             else
             {
-                // Aquí puedes manejar el error (por ejemplo, mostrar un mensaje de error).
+                Response.Write("<script>alert('Error al agregar Mascota');</script>");
             }
         }
 

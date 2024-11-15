@@ -32,7 +32,7 @@
                 <input type="email" id="txtEmail" runat="server"  />
 
                 <label for="txtIdentificacion">Identificación:</label>
-                <input type="text" id="txtIdentificacion" runat="server" required />
+                <input type="text" id="txtIdentificacion" runat="server"  />
 
                 <label for="txtAdicionadoPor">Añadido por:</label>
                 <input type="text" id="txtAdicionadoPor" runat="server"  />
