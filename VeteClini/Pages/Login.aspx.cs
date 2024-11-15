@@ -15,7 +15,7 @@ namespace VeteClini.Pages
             lblMessage.Visible = false;
         }
 
-        protected void btnLogin_Click(object sender, EventArgs e)
+        protected void BtnLogin_Click(object sender, EventArgs e)
         {
             // Captura los datos de usuario y contraseña
             string usuario = "admin";// username.Value;
@@ -27,7 +27,7 @@ namespace VeteClini.Pages
             if (autenticado)
             {
                 // Redirecciona a la página principal si las credenciales son correctas
-                Response.Redirect("Prueabaspx.aspx");
+                Response.Redirect("Dueño.aspx");
             }
             else
             {

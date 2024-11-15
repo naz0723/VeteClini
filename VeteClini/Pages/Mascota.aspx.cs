@@ -11,15 +11,11 @@ namespace VeteClini.Pages
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            // Verifica si es la primera carga de la página.
-            if (!IsPostBack)
-            {
-                // Inicialización de datos si es necesario.
-            }
+            // Aquí puedes cargar información inicial si lo necesitas.
         }
 
-        // Método para AgregarMascota una Mascota
-        protected void Agregar()
+        // Método para agregar una mascota
+        protected void AgregarMascota_Click(object sender, EventArgs e)
         {
             string nombre = txtNombre.Value;
             string especie = txtEspecie.Value;
@@ -27,63 +23,64 @@ namespace VeteClini.Pages
             DateTime fechaNacimiento = DateTime.Parse(txtFechaNacimiento.Value);
             string color = txtColor.Value;
             decimal peso = decimal.Parse(txtPeso.Value);
-            string dueñoId = txtDuenoID.Value;
+            int duenoID = int.Parse(txtDueñoID.Value);
             string adicionadoPor = txtAdicionadoPor.Value;
 
-            bool agregado = clsMascota.AgregarMascota(nombre, especie, raza, fechaNacimiento, color, peso, 
-                Convert.ToInt32(dueñoId), adicionadoPor);
-
-            if (agregado)
+            bool exito = clsMascota.AgregarMascota(nombre, especie, raza, fechaNacimiento, color, peso, duenoID, adicionadoPor);
+            if (exito)
             {
-                Response.Write("<script>alert('Mascota agregada correctamente');</script>");
+                // Aquí puedes agregar un mensaje de éxito o redirigir a otra página si lo deseas.
             }
             else
             {
-                Response.Write("<script>alert('Hubo un error al AgregarMascota la Mascota');</script>");
+                // Aquí puedes manejar el error (por ejemplo, mostrar un mensaje de error).
             }
         }
 
-        // Método para eliminar una Mascota
-        protected void eliminarMascota()
+        // Método para actualizar una mascota
+        protected void ActualizarMascota_Click(object sender, EventArgs e)
         {
-            string MascotaId = txtMascotaIDEliminar.Value;
+            int mascotaID = int.Parse(txtMascotaIDEliminar.Value);
+            string nombre = txtNombre.Value;
+            string especie = txtEspecie.Value;
+            string raza = txtRaza.Value;
+            DateTime fechaNacimiento = DateTime.Parse(txtFechaNacimiento.Value);
+            string color = txtColor.Value;
+            decimal peso = decimal.Parse(txtPeso.Value);
+            string modificadoPor = txtAdicionadoPor.Value;
 
-            bool eliminado = clsMascota.EliminarMascota(Convert.ToInt32(MascotaId));
-
-            if (eliminado)
+            bool exito = clsMascota.ActualizarMascota(mascotaID, nombre, especie, raza, fechaNacimiento, color, peso, modificadoPor);
+            if (exito)
             {
-                Response.Write("<script>alert('Mascota eliminada correctamente');</script>");
+                // Aquí puedes agregar un mensaje de éxito o redirigir a otra página si lo deseas.
             }
             else
             {
-                Response.Write("<script>alert('Hubo un error al eliminar la Mascota');</script>");
+                // Aquí puedes manejar el error (por ejemplo, mostrar un mensaje de error).
             }
         }
 
-        // Método para actualizar una Mascota
-        protected void actualizarMascota()
+        // Método para eliminar una mascota
+        protected void EliminarMascota_Click(object sender, EventArgs e)
         {
-            string MascotaId = txtMascotaIDActualizar.Value;
-            string nombre = txtNombreActualizar.Value;
-            string especie = txtEspecieActualizar.Value;
-            string raza = txtRazaActualizar.Value;
-            DateTime fechaNacimiento = DateTime.Parse(txtFechaNacimientoActualizar.Value);
-            string color = txtColorActualizar.Value;
-            decimal peso = decimal.Parse(txtPesoActualizar.Value);
-            string modificadoPor = txtModificadoPor.Value;
+            int mascotaID = int.Parse(txtMascotaIDEliminar.Value);
 
-            bool actualizado = clsMascota.ActualizarMascota(Convert.ToInt32(MascotaId), nombre, especie, raza, fechaNacimiento, color, peso, modificadoPor);
-
-            if (actualizado)
+            bool exito = clsMascota.EliminarMascota(mascotaID);
+            if (exito)
             {
-                Response.Write("<script>alert('Mascota actualizada correctamente');</script>");
+                // Aquí puedes agregar un mensaje de éxito o redirigir a otra página si lo deseas.
             }
             else
             {
-                Response.Write("<script>alert('Hubo un error al actualizar la Mascota');</script>");
+                // Aquí puedes manejar el error (por ejemplo, mostrar un mensaje de error).
             }
+        }
+
+        // Método manejador de eventos para el botón "Historial Clinico"
+        protected void HistorialClinico_Click(object sender, EventArgs e)
+        {
+            // Lógica de redirección u otra acción
+            Response.Redirect("HistorialClinico.aspx");
         }
     }
 }
-
-    

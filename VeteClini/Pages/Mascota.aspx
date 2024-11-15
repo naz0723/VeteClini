@@ -1,111 +1,59 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Mascota.aspx.cs" Inherits="VeteClini.Pages.Mascota" %>
 
 <!DOCTYPE html>
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-   <title>Gestión de Mascotas</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-        }
-        label, input, textarea, button {
-            margin-bottom: 10px;
-            display: block;
-        }
-        .form-group {
-            margin-bottom: 15px;
-        }
-    </style>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <title>Administrar Mascotas</title>
+    <link type="text/css" rel="stylesheet" href="../Styles/EstilosFrm.css" />
 </head>
 <body>
-    <h1>Gestión de Mascotas</h1>
+    <form id="form1" runat="server">
+        <div>
+            <h2>Administrar Mascotas</h2>
 
-    <h2>Agregar Mascota</h2>
-    <form id="formAgregar" runat="server">
-        <div class="form-group">
+            <!-- Campos para agregar o actualizar los datos de la mascota -->
             <label for="txtNombre">Nombre:</label>
-            <input type="text" id="txtNombre" runat="server" />
-        </div>
-        <div class="form-group">
+            <input type="text" id="txtNombre" runat="server" required />
+
             <label for="txtEspecie">Especie:</label>
-            <input type="text" id="txtEspecie" runat="server" />
-        </div>
-        <div class="form-group">
+            <input type="text" id="txtEspecie" runat="server" required />
+
             <label for="txtRaza">Raza:</label>
-            <input type="text" id="txtRaza" runat="server" />
-        </div>
-        <div class="form-group">
+            <input type="text" id="txtRaza" runat="server" required />
+
             <label for="txtFechaNacimiento">Fecha de Nacimiento:</label>
-            <input type="date" id="txtFechaNacimiento" runat="server" />
-        </div>
-        <div class="form-group">
+            <input type="date" id="txtFechaNacimiento" runat="server" required />
+
             <label for="txtColor">Color:</label>
-            <input type="text" id="txtColor" runat="server" />
-        </div>
-        <div class="form-group">
+            <input type="text" id="txtColor" runat="server" required />
+
             <label for="txtPeso">Peso:</label>
-            <input type="number" id="txtPeso" runat="server" />
-        </div>
-        <div class="form-group">
-            <label for="txtDuenoID">ID del Dueño:</label>
-            <input type="text" id="txtDuenoID" runat="server" />
-        </div>
-        <div class="form-group">
+            <input type="number" step="0.01" id="txtPeso" runat="server" required />
+
+            <label for="txtDueñoID">ID del Dueño:</label>
+            <input type="number" id="txtDueñoID" runat="server" required />
+
             <label for="txtAdicionadoPor">Adicionado Por:</label>
-            <input type="text" id="txtAdicionadoPor" runat="server" />
-        </div>
-        <button type="button" onclick="agregarMascota()">Agregar Mascota</button>
-    </form>
+            <input type="text" id="txtAdicionadoPor" runat="server" required />
 
-    <h2>Eliminar Mascota</h2>
-    <form id="formEliminar" runat="server">
-        <div class="form-group">
-            <label for="txtMascotaIDEliminar">ID de la Mascota:</label>
-            <input type="text" id="txtMascotaIDEliminar" runat="server" />
-        </div>
-        <button type="button" onclick="eliminarMascota()">Eliminar Mascota</button>
-    </form>
+            <!-- Botón para agregar una nueva mascota -->
+            <asp:Button ID="btnAgregar" runat="server" Text="Agregar Mascota" OnClick="AgregarMascota_Click" />
 
-    <h2>Actualizar Mascota</h2>
-    <form id="formActualizar" runat="server">
-        <div class="form-group">
-            <label for="txtMascotaIDActualizar">ID de la Mascota:</label>
-            <input type="text" id="txtMascotaIDActualizar" runat="server" />
-        </div>
-        <div class="form-group">
-            <label for="txtNombreActualizar">Nombre:</label>
-            <input type="text" id="txtNombreActualizar" runat="server" />
-        </div>
-        <div class="form-group">
-            <label for="txtEspecieActualizar">Especie:</label>
-            <input type="text" id="txtEspecieActualizar" runat="server" />
-        </div>
-        <div class="form-group">
-            <label for="txtRazaActualizar">Raza:</label>
-            <input type="text" id="txtRazaActualizar" runat="server" />
-        </div>
-        <div class="form-group">
-            <label for="txtFechaNacimientoActualizar">Fecha de Nacimiento:</label>
-            <input type="date" id="txtFechaNacimientoActualizar" runat="server" />
-        </div>
-        <div class="form-group">
-            <label for="txtColorActualizar">Color:</label>
-            <input type="text" id="txtColorActualizar" runat="server" />
-        </div>
-        <div class="form-group">
-            <label for="txtPesoActualizar">Peso:</label>
-            <input type="number" id="txtPesoActualizar" runat="server" />
-        </div>
-        <div class="form-group">
-            <label for="txtModificadoPor">Modificado Por:</label>
-            <input type="text" id="txtModificadoPor" runat="server" />
-        </div>
-        <button type="button" onclick="actualizarMascota()">Actualizar Mascota</button>
-    </form>
+            <!-- Botón para actualizar una mascota existente -->
+            <asp:Button ID="btnActualizar" runat="server" Text="Actualizar Mascota" OnClick="ActualizarMascota_Click" />
 
-  
+            <!-- Campo para ingresar el ID de la mascota a eliminar -->
+            <label for="txtMascotaIDEliminar">ID de la Mascota a Eliminar:</label>
+            <input type="number" id="txtMascotaIDEliminar" runat="server" required />
+
+            <!-- Botón para eliminar una mascota -->
+            <asp:Button ID="btnEliminar" runat="server" Text="Eliminar Mascota" OnClick="EliminarMascota_Click" />
+            <br />
+                
+            <!-- Botón para redirigir a otra página -->
+            <asp:Button ID="btnHistorialClinico" runat="server" Text="Historial Clinico" OnClick="HistorialClinico_Click" />
+        </div>
+    </form>
 </body>
 </html>

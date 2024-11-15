@@ -15,13 +15,13 @@ namespace VeteClini.Pages
     {
 
         /// <summary>
-        /// Control formAgregar.
+        /// Control formDueño.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm formAgregar;
+        protected global::System.Web.UI.HtmlControls.HtmlForm formDueño;
 
         /// <summary>
         /// Control txtNombre.
@@ -48,7 +48,7 @@ namespace VeteClini.Pages
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTextArea txtDireccion;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtDireccion;
 
         /// <summary>
         /// Control txtTelefono.
@@ -66,7 +66,7 @@ namespace VeteClini.Pages
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText txtEmail;
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl txtEmail;
 
         /// <summary>
         /// Control txtIdentificacion.
@@ -87,13 +87,13 @@ namespace VeteClini.Pages
         protected global::System.Web.UI.HtmlControls.HtmlInputText txtAdicionadoPor;
 
         /// <summary>
-        /// Control formEliminar.
+        /// Control btnAgregar.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm formEliminar;
+        protected global::System.Web.UI.WebControls.Button btnAgregar;
 
         /// <summary>
         /// Control txtDueñoIDEliminar.
@@ -105,13 +105,13 @@ namespace VeteClini.Pages
         protected global::System.Web.UI.HtmlControls.HtmlInputText txtDueñoIDEliminar;
 
         /// <summary>
-        /// Control formActualizar.
+        /// Control btnEliminar.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm formActualizar;
+        protected global::System.Web.UI.WebControls.Button btnEliminar;
 
         /// <summary>
         /// Control txtDueñoIDActualizar.
@@ -147,7 +147,7 @@ namespace VeteClini.Pages
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTextArea txtDireccionActualizar;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtDireccionActualizar;
 
         /// <summary>
         /// Control txtTelefonoActualizar.
@@ -165,7 +165,7 @@ namespace VeteClini.Pages
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText txtEmailActualizar;
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl txtEmailActualizar;
 
         /// <summary>
         /// Control txtIdentificacionActualizar.
@@ -184,5 +184,23 @@ namespace VeteClini.Pages
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputText txtModificadoPor;
+
+        /// <summary>
+        /// Control btnActualizar.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnActualizar;
+
+        /// <summary>
+        /// Control btnMascota.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnMascota;
     }
 }

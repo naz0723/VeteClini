@@ -2,106 +2,54 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html lang="es">
 <head runat="server">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta charset="utf-8" />
     <title>Gestión de Historial Clínico</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-        }
-        label, input, textarea, button {
-            margin-bottom: 10px;
-            display: block;
-        }
-        .form-group {
-            margin-bottom: 15px;
-        }
-    </style>
+    <link type="text/css" rel="stylesheet" href="../Styles/EstilosFrm.css" />
 </head>
 <body>
-    <h1>Gestión de Historial Clínico</h1>
-
-    <h2>Agregar Historial Clínico</h2>
-    <form id="formAgregar" runat="server">
-        <div class="form-group">
+    <form id="form1" runat="server">
+        <h2>Gestión de Historial Clínico</h2>
+        
+        <div>
+            <label for="txtHistorialID">ID del Historial:</label>
+            <asp:TextBox ID="txtHistorialID" runat="server"></asp:TextBox>
+        </div>
+        <div>
             <label for="txtFechaVisita">Fecha de Visita:</label>
-            <input type="datetime-local" id="txtFechaVisita" runat="server" />
+            <asp:TextBox ID="txtFechaVisita" runat="server" TextMode="Date"></asp:TextBox>
         </div>
-        <div class="form-group">
+        <div>
             <label for="txtSintomas">Síntomas:</label>
-            <textarea id="txtSintomas" runat="server"></textarea>
+            <asp:TextBox ID="txtSintomas" runat="server"></asp:TextBox>
         </div>
-        <div class="form-group">
+        <div>
             <label for="txtDiagnostico">Diagnóstico:</label>
-            <textarea id="txtDiagnostico" runat="server"></textarea>
+            <asp:TextBox ID="txtDiagnostico" runat="server"></asp:TextBox>
         </div>
-        <div class="form-group">
+        <div>
             <label for="txtTratamiento">Tratamiento:</label>
-            <textarea id="txtTratamiento" runat="server"></textarea>
+            <asp:TextBox ID="txtTratamiento" runat="server"></asp:TextBox>
         </div>
-        <div class="form-group">
+        <div>
             <label for="txtVeterinario">Veterinario:</label>
-            <input type="text" id="txtVeterinario" runat="server" />
+            <asp:TextBox ID="txtVeterinario" runat="server"></asp:TextBox>
         </div>
-        <div class="form-group">
-            <label for="txtMascotaID">ID de Mascota:</label>
-            <input type="text" id="txtMascotaID" runat="server" />
+        <div>
+            <label for="txtMascotaID">ID de la Mascota:</label>
+            <asp:TextBox ID="txtMascotaID" runat="server"></asp:TextBox>
         </div>
-        <div class="form-group">
-            <label for="txtAdicionadoPor">Adicionado Por:</label>
-            <input type="text" id="txtAdicionadoPor" runat="server" />
+        <div>
+            <label for="txtAdicionadoPor">Añadido por:</label>
+            <asp:TextBox ID="txtAdicionadoPor" runat="server"></asp:TextBox>
         </div>
-        <button type="button" onclick="agregarHistorialClinico()">Agregar Historial</button>
-    </form>
-
-    <h2>Eliminar Historial Clínico</h2>
-    <form id="formEliminar" runat="server">
-        <div class="form-group">
-            <label for="txtHistorialIDEliminar">ID del Historial:</label>
-            <input type="text" id="txtHistorialIDEliminar" runat="server" />
+        <div>
+            <asp:Button ID="btnAgregarHistorial" runat="server" Text="Agregar Historial" OnClick="AgregarHistorial_Click" />
+            <asp:Button ID="btnActualizarHistorial" runat="server" Text="Actualizar Historial" OnClick="ActualizarHistorial_Click" />
+            <asp:Button ID="btnEliminarHistorial" runat="server" Text="Eliminar Historial" OnClick="EliminarHistorial_Click" />
         </div>
-        <button type="button" onclick="eliminarHistorialClinico()">Eliminar Historial</button>
-    </form>
-
-    <h2>Actualizar Historial Clínico</h2>
-    <form id="formActualizar" runat="server">
-        <div class="form-group">
-            <label for="txtHistorialIDActualizar">ID del Historial:</label>
-            <input type="text" id="txtHistorialIDActualizar" runat="server" />
-        </div>
-        <div class="form-group">
-            <label for="txtFechaVisitaActualizar">Fecha de Visita:</label>
-            <input type="datetime-local" id="txtFechaVisitaActualizar" runat="server" />
-        </div>
-        <div class="form-group">
-            <label for="txtSintomasActualizar">Síntomas:</label>
-            <textarea id="txtSintomasActualizar" runat="server"></textarea>
-        </div>
-        <div class="form-group">
-            <label for="txtDiagnosticoActualizar">Diagnóstico:</label>
-            <textarea id="txtDiagnosticoActualizar" runat="server"></textarea>
-        </div>
-        <div class="form-group">
-            <label for="txtTratamientoActualizar">Tratamiento:</label>
-            <textarea id="txtTratamientoActualizar" runat="server"></textarea>
-        </div>
-        <div class="form-group">
-            <label for="txtVeterinarioActualizar">Veterinario:</label>
-            <input type="text" id="txtVeterinarioActualizar" runat="server" />
-        </div>
-        <div class="form-group">
-            <label for="txtMascotaIDActualizar">ID de Mascota:</label>
-            <input type="text" id="txtMascotaIDActualizar" runat="server" />
-        </div>
-        <div class="form-group">
-            <label for="txtModificadoPor">Modificado Por:</label>
-            <input type="text" id="txtModificadoPor" runat="server" />
-        </div>
-        <button type="button" onclick="actualizarHistorialClinico()">Actualizar Historial</button>
-    </form>
-
-   
-</body>
-</html>
+                    <!-- Botón para redirigir a otra página -->
+              <asp:Button ID="btnLogin" runat="server" Text="Login" OnClick="Login_Click" />
+            </div></div>
+    </form></body></html>

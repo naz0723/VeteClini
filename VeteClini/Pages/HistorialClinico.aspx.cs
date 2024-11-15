@@ -9,78 +9,111 @@ namespace VeteClini.Pages
 {
     public partial class HistorialClinico : System.Web.UI.Page
     {
-         
         protected void Page_Load(object sender, EventArgs e)
         {
-            // Verifica si es la primera carga de la página.
-            if (!IsPostBack)
+            // Este método se llama cuando la página se carga.
+        }
+        protected void AgregarHistorial_Click(object sender, EventArgs e)
+        {
+            try
             {
-                // Inicialización de datos si es necesario.
+                // Recoger los valores de los controles TextBox
+                DateTime fechaVisita = DateTime.Parse(txtFechaVisita.Text);
+                string sintomas = txtSintomas.Text;
+                string diagnostico = txtDiagnostico.Text;
+                string tratamiento = txtTratamiento.Text;
+                string veterinario = txtVeterinario.Text;
+                int mascotaID = int.Parse(txtMascotaID.Text);
+                string adicionadoPor = txtAdicionadoPor.Text;
+
+                // Llamar al método AgregarHistorialClinico de la clase clsHistorial
+                bool resultado = clsHistorial.AgregarHistorialClinico(fechaVisita, sintomas, diagnostico, tratamiento, veterinario, mascotaID, adicionadoPor);
+
+                // Mostrar un mensaje de éxito o error según el resultado
+                if (resultado)
+                {
+                    Response.Write("<script>alert('Historial clínico agregado correctamente.');</script>");
+                }
+                else
+                {
+                    Response.Write("<script>alert('Error al agregar el historial clínico.');</script>");
+                }
+            }
+            catch (Exception ex)
+            {
+                Response.Write("<script>alert('Error: " + ex.Message + "');</script>");
             }
         }
 
-        // Método para agregar un historial clínico
-        protected void agregarHistorialClinico()
+        protected void ActualizarHistorial_Click(object sender, EventArgs e)
         {
-            DateTime fechaVisita = DateTime.Parse(txtFechaVisita.Value);
-            string sintomas = txtSintomas.Value;
-            string diagnostico = txtDiagnostico.Value;
-            string tratamiento = txtTratamiento.Value;
-            string veterinario = txtVeterinario.Value;
-            string MascotaId = txtMascotaID.Value;
-            string adicionadoPor = txtAdicionadoPor.Value;
-
-            bool agregado = clsHistorial.AgregarHistorialClinico(fechaVisita, sintomas, diagnostico, tratamiento, veterinario, Convert.ToInt32(MascotaId), adicionadoPor);
-
-            if (agregado)
+            try
             {
-                Response.Write("<script>alert('Historial clínico agregado correctamente');</script>");
+                // Recoger los valores de los controles TextBox
+                int historialID = int.Parse(txtHistorialID.Text);
+                DateTime fechaVisita = DateTime.Parse(txtFechaVisita.Text);
+                string sintomas = txtSintomas.Text;
+                string diagnostico = txtDiagnostico.Text;
+                string tratamiento = txtTratamiento.Text;
+                string veterinario = txtVeterinario.Text;
+                int mascotaID = int.Parse(txtMascotaID.Text);
+                string modificadoPor = txtAdicionadoPor.Text;
+
+                // Llamar al método ActualizarHistorialClinico de la clase clsHistorial
+                bool resultado = clsHistorial.ActualizarHistorialClinico(historialID, fechaVisita, sintomas, diagnostico, tratamiento, veterinario, mascotaID, modificadoPor);
+
+                // Mostrar un mensaje de éxito o error según el resultado
+                if (resultado)
+                {
+                    Response.Write("<script>alert('Historial clínico actualizado correctamente.');</script>");
+                }
+                else
+                {
+                    Response.Write("<script>alert('Error al actualizar el historial clínico.');</script>");
+                }
             }
-            else
+            catch (Exception ex)
             {
-                Response.Write("<script>alert('Error al agregar el historial clínico');</script>");
+                Response.Write("<script>alert('Error: " + ex.Message + "');</script>");
             }
         }
 
-        // Método para eliminar un historial clínico
-        protected void eliminarHistorialClinico()
+        protected void EliminarHistorial_Click(object sender, EventArgs e)
         {
-            int historialId = Convert.ToInt32(txtHistorialIDEliminar.Value) ;
-
-            bool eliminado = clsHistorial.EliminarHistorialClinico(historialId);
-
-            if (eliminado)
+            try
             {
-                Response.Write("<script>alert('Historial clínico eliminado correctamente');</script>");
+                int historialID = int.Parse(txtHistorialID.Text);
+
+                // Llamar al método EliminarHistorialClinico de la clase clsHistorial
+                bool resultado = clsHistorial.EliminarHistorialClinico(historialID);
+
+                // Mostrar un mensaje de éxito o error según el resultado
+                if (resultado)
+                {
+                    Response.Write("<script>alert('Historial clínico eliminado correctamente.');</script>");
+                }
+                else
+                {
+                    Response.Write("<script>alert('Error al eliminar el historial clínico.');</script>");
+                }
             }
-            else
+            catch (Exception ex)
             {
-                Response.Write("<script>alert('Error al eliminar el historial clínico');</script>");
+                Response.Write("<script>alert('Error: " + ex.Message + "');</script>");
             }
         }
 
-        // Método para actualizar un historial clínico
-        protected void actualizarHistorialClinico()
+        protected void VerHistorial_Click(object sender, EventArgs e)
         {
-            string historialId = txtHistorialIDActualizar.Value;
-            DateTime fechaVisita = DateTime.Parse(txtFechaVisitaActualizar.Value);
-            string sintomas = txtSintomasActualizar.Value;
-            string diagnostico = txtDiagnosticoActualizar.Value;
-            string tratamiento = txtTratamientoActualizar.Value;
-            string veterinario = txtVeterinarioActualizar.Value;
-            string MascotaId = txtMascotaIDActualizar.Value;
-            string modificadoPor = txtModificadoPor.Value;
+            // Aquí iría el código para redirigir a una página de historial o listar los historiales
+            // Por ejemplo:
+            // Response.Redirect("VerHistorial.aspx");
+        }
 
-            bool actualizado = clsHistorial.ActualizarHistorialClinico(Convert.ToInt32(historialId), fechaVisita, sintomas, diagnostico, tratamiento, veterinario, Convert.ToInt32(MascotaId), modificadoPor);
-
-            if (actualizado)
-            {
-                Response.Write("<script>alert('Historial clínico actualizado correctamente');</script>");
-            }
-            else
-            {
-                Response.Write("<script>alert('Error al actualizar el historial clínico');</script>");
-            }
+        // Evento para redirigir a la página de gestión de mascotas
+        protected void Login_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Login.aspx");
         }
     }
 }

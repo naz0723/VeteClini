@@ -15,13 +15,22 @@ namespace VeteClini.Pages
     {
 
         /// <summary>
-        /// Control formAgregar.
+        /// Control form1.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm formAgregar;
+        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+
+        /// <summary>
+        /// Control txtHistorialID.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtHistorialID;
 
         /// <summary>
         /// Control txtFechaVisita.
@@ -30,7 +39,7 @@ namespace VeteClini.Pages
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl txtFechaVisita;
+        protected global::System.Web.UI.WebControls.TextBox txtFechaVisita;
 
         /// <summary>
         /// Control txtSintomas.
@@ -39,7 +48,7 @@ namespace VeteClini.Pages
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTextArea txtSintomas;
+        protected global::System.Web.UI.WebControls.TextBox txtSintomas;
 
         /// <summary>
         /// Control txtDiagnostico.
@@ -48,7 +57,7 @@ namespace VeteClini.Pages
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTextArea txtDiagnostico;
+        protected global::System.Web.UI.WebControls.TextBox txtDiagnostico;
 
         /// <summary>
         /// Control txtTratamiento.
@@ -57,7 +66,7 @@ namespace VeteClini.Pages
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTextArea txtTratamiento;
+        protected global::System.Web.UI.WebControls.TextBox txtTratamiento;
 
         /// <summary>
         /// Control txtVeterinario.
@@ -66,7 +75,7 @@ namespace VeteClini.Pages
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText txtVeterinario;
+        protected global::System.Web.UI.WebControls.TextBox txtVeterinario;
 
         /// <summary>
         /// Control txtMascotaID.
@@ -75,7 +84,7 @@ namespace VeteClini.Pages
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText txtMascotaID;
+        protected global::System.Web.UI.WebControls.TextBox txtMascotaID;
 
         /// <summary>
         /// Control txtAdicionadoPor.
@@ -84,105 +93,42 @@ namespace VeteClini.Pages
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText txtAdicionadoPor;
+        protected global::System.Web.UI.WebControls.TextBox txtAdicionadoPor;
 
         /// <summary>
-        /// Control formEliminar.
+        /// Control btnAgregarHistorial.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm formEliminar;
+        protected global::System.Web.UI.WebControls.Button btnAgregarHistorial;
 
         /// <summary>
-        /// Control txtHistorialIDEliminar.
+        /// Control btnActualizarHistorial.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText txtHistorialIDEliminar;
+        protected global::System.Web.UI.WebControls.Button btnActualizarHistorial;
 
         /// <summary>
-        /// Control formActualizar.
+        /// Control btnEliminarHistorial.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm formActualizar;
+        protected global::System.Web.UI.WebControls.Button btnEliminarHistorial;
 
         /// <summary>
-        /// Control txtHistorialIDActualizar.
+        /// Control btnLogin .
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText txtHistorialIDActualizar;
-
-        /// <summary>
-        /// Control txtFechaVisitaActualizar.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl txtFechaVisitaActualizar;
-
-        /// <summary>
-        /// Control txtSintomasActualizar.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTextArea txtSintomasActualizar;
-
-        /// <summary>
-        /// Control txtDiagnosticoActualizar.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTextArea txtDiagnosticoActualizar;
-
-        /// <summary>
-        /// Control txtTratamientoActualizar.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTextArea txtTratamientoActualizar;
-
-        /// <summary>
-        /// Control txtVeterinarioActualizar.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText txtVeterinarioActualizar;
-
-        /// <summary>
-        /// Control txtMascotaIDActualizar.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText txtMascotaIDActualizar;
-
-        /// <summary>
-        /// Control txtModificadoPor.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText txtModificadoPor;
+        protected global::System.Web.UI.WebControls.Button btnLogin;
     }
 }

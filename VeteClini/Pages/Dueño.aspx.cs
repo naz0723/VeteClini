@@ -9,19 +9,18 @@ namespace VeteClini.Pages
 {
     public partial class Dueño : System.Web.UI.Page
     {
+        // Instancia de la clase de base de datos para ejecutar consultas
+        private static DatabaseHelper dh = new DatabaseHelper();
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            // Verifica si es la primera carga de la página.
-            if (!IsPostBack)
-            {
-                // Inicialización de datos si es necesario.
-            }
+            // Puedes inicializar variables o cargar datos si es necesario.
         }
 
-        // Método para agregar un dueño
+        // Evento para agregar un nuevo dueño
         protected void AgregarDueño_Click(object sender, EventArgs e)
         {
-            // Captura los datos ingresados en los controles del formulario
+            // Obtener los datos ingresados por el usuario
             string nombre = txtNombre.Value;
             string apellido = txtApellido.Value;
             string direccion = txtDireccion.Value;
@@ -30,60 +29,90 @@ namespace VeteClini.Pages
             string identificacion = txtIdentificacion.Value;
             string adicionadoPor = txtAdicionadoPor.Value;
 
-            // Realiza la lógica de inserción a la base de datos aquí
-            // Puedes llamar a una clase de servicio o un repositorio
-            bool agregado = clsDueño.Agregar(nombre, apellido, direccion, telefono, email, identificacion, adicionadoPor);
+            // Llamar al método para agregar el dueño
+            bool exito = clsDueño.Agregar(nombre, apellido, direccion, telefono, email, identificacion, adicionadoPor);
 
-           /* // Muestra un mensaje de confirmación o error
-            if (agregado)
+            if (exito)
             {
-                Response.Write("<script>alert('Dueño agregado correctamente');</script>");
+                Response.Write("<script>alert('Dueño agregado exitosamente.');</script>");
             }
             else
             {
-                Response.Write("<script>alert('Hubo un error al agregar el dueño');</script>");
-            }*/
-        }
-
-        // Método para eliminar un dueño
-        protected void eliminarDueño()
-        {
-            string dueñoId = txtDueñoIDEliminar.Value;
-
-           bool eliminado = clsDueño.Eliminar(Convert.ToInt32(dueñoId));
-
-            if (eliminado)
-            {
-                Response.Write("<script>alert('Dueño eliminado correctamente');</script>");
-            }
-            else
-            {
-                Response.Write("<script>alert('Hubo un error al eliminar el dueño');</script>");
+                Response.Write("<script>alert('Error al agregar al dueño.');</script>");
             }
         }
 
-        // Método para actualizar un dueño
-        protected void actualizarDueño()
+        // Evento para eliminar un dueño
+        protected void EliminarDueño_Click(object sender, EventArgs e)
         {
-            string dueñoId = txtDueñoIDActualizar.Value;
-            string nombre = txtNombreActualizar.Value;
-            string apellido = txtApellidoActualizar.Value;
-            string direccion = txtDireccionActualizar.Value;
-            string telefono = txtTelefonoActualizar.Value;
-            string email = txtEmailActualizar.Value;
-            string identificacion = txtIdentificacionActualizar.Value;
-            string modificadoPor = txtModificadoPor.Value;
+            // Verificar si el valor es un número válido antes de intentar convertirlo
+            int dueñoID;
+            bool isValid = int.TryParse(txtDueñoIDEliminar.Value, out dueñoID);
 
-            bool actualizado = clsDueño.Actualizar(Convert.ToInt32(dueñoId), nombre, apellido, direccion, telefono, email, identificacion, modificadoPor);
-
-            if (actualizado)
+            if (isValid)
             {
-                Response.Write("<script>alert('Dueño actualizado correctamente');</script>");
+                // Si el valor es un número válido, procede a eliminar
+                bool exito = clsDueño.Eliminar(dueñoID);
+                if (exito)
+                {
+                    // Eliminar exitoso
+                    Response.Write("<script>alert('Dueño eliminado correctamente');</script>");
+                }
+                else
+                {
+                    // Error al eliminar
+                    Response.Write("<script>alert('Hubo un error al eliminar al dueño');</script>");
+                }
             }
             else
             {
-                Response.Write("<script>alert('Hubo un error al actualizar el dueño');</script>");
-            } 
+                // Si el valor no es válido, muestra un mensaje de error
+                Response.Write("<script>alert('Por favor, ingrese un ID válido');</script>");
+            }
+        }
+
+        // Evento para actualizar los datos de un dueño
+        protected void ActualizarDueño_Click(object sender, EventArgs e)
+        {
+            // Validar que el valor ingresado sea un número válido
+            int dueñoID;
+            if (int.TryParse(txtDueñoIDActualizar.Value, out dueñoID))
+            {
+                // Si la conversión es exitosa, continuar con el proceso de actualización
+                string nombre = txtNombreActualizar.Value;
+                string apellido = txtApellidoActualizar.Value;
+                string direccion = txtDireccionActualizar.Value;
+                string telefono = txtTelefonoActualizar.Value;
+                string email = txtEmailActualizar.Value;
+                string identificacion = txtIdentificacionActualizar.Value;
+                string modificadoPor = txtModificadoPor.Value;
+
+                // Llamar al método para actualizar el dueño (debe estar implementado en la clase clsDueño)
+                bool exito = clsDueño.Actualizar(dueñoID, nombre, apellido, direccion, telefono, email, identificacion, modificadoPor);
+
+                if (exito)
+                {
+                    // Mensaje de éxito
+                    Response.Write("<script>alert('Dueño actualizado exitosamente.');</script>");
+                }
+                else
+                {
+                    // Mensaje de error
+                    Response.Write("<script>alert('Error al actualizar al dueño.');</script>");
+                }
+            }
+            else
+            {
+                // Si la conversión falla, mostrar un mensaje de error
+                Response.Write("<script>alert('El ID del dueño debe ser un número válido.');</script>");
+            }
+        }
+
+
+        // Evento para redirigir a la página de gestión de mascotas
+        protected void Mascotas_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Mascota.aspx");
         }
     }
 }

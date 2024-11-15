@@ -72,6 +72,7 @@
     <Content Include="Pages\Login.aspx" />
     <Content Include="Pages\Mascota.aspx" />
     <Content Include="Pages\Prueabaspx.aspx" />
+    <Content Include="Styles\EstilosFrm.css" />
     <Content Include="Styles\HojaEstilos.css" />
     <Content Include="Web.config" />
   </ItemGroup>

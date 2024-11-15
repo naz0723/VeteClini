@@ -18,7 +18,7 @@
             <label for="password">Contraseña:</label>
             <input type="password" id="password" name="password" runat="server" required>
             <br />
-            <button type="submit" runat="server" onserverclick="btnLogin_Click">Iniciar sesión</button>
+            <button type="submit" runat="server" onserverclick="BtnLogin_Click">Iniciar sesión</button>
         </form>
         <div class="message" runat="server" id="lblMessage"></div>
         <!-- Div para mensajes -->

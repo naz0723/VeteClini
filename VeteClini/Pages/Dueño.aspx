@@ -4,105 +4,80 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-  <title>Gestión de Dueños</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-        }
-        label, input, textarea, button {
-            margin-bottom: 10px;
-            display: block;
-        }
-        .form-group {
-            margin-bottom: 15px;
-        }
-    </style>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Gestión de Dueños</title>
+    <link type="text/css" rel="stylesheet" href="../Styles/EstilosFrm.css" />
 </head>
 <body>
-    <h1>Gestión de Dueños</h1>
+    <form id="formDueño" runat="server">
+        <div class="container">
+            <h2>Gestión de Dueños</h2>
 
-    <h2>Agregar Dueño</h2>
-    <form id="formAgregar" runat="server">
-        <div class="form-group">
-            <label for="txtNombre">Nombre:</label>
-            <input type="text" id="txtNombre" runat="server" />
-        </div>
-        <div class="form-group">
-            <label for="txtApellido">Apellido:</label>
-            <input type="text" id="txtApellido" runat="server" />
-        </div>
-        <div class="form-group">
-            <label for="txtDireccion">Dirección:</label>
-            <textarea id="txtDireccion" runat="server"></textarea>
-        </div>
-        <div class="form-group">
-            <label for="txtTelefono">Teléfono:</label>
-            <input type="text" id="txtTelefono" runat="server" />
-        </div>
-        <div class="form-group">
-            <label for="txtEmail">Email:</label>
-            <input type="text" id="txtEmail" runat="server" />
-        </div>
-        <div class="form-group">
-            <label for="txtIdentificacion">Identificación:</label>
-            <input type="text" id="txtIdentificacion" runat="server" />
-        </div>
-        <div class="form-group">
-            <label for="txtAdicionadoPor">Adicionado Por:</label>
-            <input type="text" id="txtAdicionadoPor" runat="server" />
-        </div>
-        <button type="button" onclick="agregarDueño()">Agregar Dueño</button>
-    </form>
+            <!-- Formulario para agregar un dueño -->
+            <div class="form-section">
+                <h3>Agregar Dueño</h3>
+                <label for="txtNombre">Nombre:</label>
+                <input type="text" id="txtNombre" runat="server" required />
+                
+                <label for="txtApellido">Apellido:</label>
+                <input type="text" id="txtApellido" runat="server" required />
 
-    <h2>Eliminar Dueño</h2>
-    <form id="formEliminar" runat="server">
-        <div class="form-group">
-            <label for="txtDueñoIDEliminar">ID del Dueño:</label>
-            <input type="text" id="txtDueñoIDEliminar" runat="server" />
-        </div>
-        <button type="button" onclick="eliminarDueño()">Eliminar Dueño</button>
-    </form>
+                <label for="txtDireccion">Dirección:</label>
+                <input type="text" id="txtDireccion" runat="server" required />
 
-    <h2>Actualizar Dueño</h2>
-    <form id="formActualizar" runat="server">
-        <div class="form-group">
-            <label for="txtDueñoIDActualizar">ID del Dueño:</label>
-            <input type="text" id="txtDueñoIDActualizar" runat="server" />
-        </div>
-        <div class="form-group">
-            <label for="txtNombreActualizar">Nombre:</label>
-            <input type="text" id="txtNombreActualizar" runat="server" />
-        </div>
-        <div class="form-group">
-            <label for="txtApellidoActualizar">Apellido:</label>
-            <input type="text" id="txtApellidoActualizar" runat="server" />
-        </div>
-        <div class="form-group">
-            <label for="txtDireccionActualizar">Dirección:</label>
-            <textarea id="txtDireccionActualizar" runat="server"></textarea>
-        </div>
-        <div class="form-group">
-            <label for="txtTelefonoActualizar">Teléfono:</label>
-            <input type="text" id="txtTelefonoActualizar" runat="server" />
-        </div>
-        <div class="form-group">
-            <label for="txtEmailActualizar">Email:</label>
-            <input type="text" id="txtEmailActualizar" runat="server" />
-        </div>
-        <div class="form-group">
-            <label for="txtIdentificacionActualizar">Identificación:</label>
-            <input type="text" id="txtIdentificacionActualizar" runat="server" />
-        </div>
-        <div class="form-group">
-            <label for="txtModificadoPor">Modificado Por:</label>
-            <input type="text" id="txtModificadoPor" runat="server" />
-        </div>
-        <button type="button" onclick="actualizarDueño()">Actualizar Dueño</button>
-    </form>
+                <label for="txtTelefono">Teléfono:</label>
+                <input type="text" id="txtTelefono" runat="server" required />
 
-   
-</body>
+                <label for="txtEmail">Correo Electrónico:</label>
+                <input type="email" id="txtEmail" runat="server" required />
+
+                <label for="txtIdentificacion">Identificación:</label>
+                <input type="text" id="txtIdentificacion" runat="server" required />
+
+                <label for="txtAdicionadoPor">Añadido por:</label>
+                <input type="text" id="txtAdicionadoPor" runat="server" required />
+
+                <asp:Button ID="btnAgregar" runat="server" Text="Agregar Dueño" OnClick="AgregarDueño_Click" />
+            </div>
+            <!-- Formulario para eliminar un dueño -->
+            <div class="form-section">
+                <h3>Eliminar Dueño</h3>
+                <label for="txtDueñoIDEliminar">ID del Dueño:</label>
+                <input type="text" id="txtDueñoIDEliminar" runat="server" required />
+                <asp:Button ID="btnEliminar" runat="server" Text="Eliminar Dueño" OnClick="EliminarDueño_Click" />
+            </div>
+            <!-- Formulario para actualizar un dueño -->
+            <div class="form-section">
+                <h3>Actualizar Dueño</h3>
+                <label for="txtDueñoIDActualizar">ID del Dueño:</label>
+                <input type="text" id="txtDueñoIDActualizar" runat="server" required />
+                
+                <label for="txtNombreActualizar">Nuevo Nombre:</label>
+                <input type="text" id="txtNombreActualizar" runat="server" required />
+
+                <label for="txtApellidoActualizar">Nuevo Apellido:</label>
+                <input type="text" id="txtApellidoActualizar" runat="server" required />
+
+                <label for="txtDireccionActualizar">Nueva Dirección:</label>
+                <input type="text" id="txtDireccionActualizar" runat="server" required />
+
+                <label for="txtTelefonoActualizar">Nuevo Teléfono:</label>
+                <input type="text" id="txtTelefonoActualizar" runat="server" required />
+
+                <label for="txtEmailActualizar">Nuevo Correo Electrónico:</label>
+                <input type="email" id="txtEmailActualizar" runat="server" required />
+
+                <label for="txtIdentificacionActualizar">Nueva Identificación:</label>
+                <input type="text" id="txtIdentificacionActualizar" runat="server" required />
+
+                <label for="txtModificadoPor">Modificado por:</label>
+                <input type="text" id="txtModificadoPor" runat="server" required />
+
+                <asp:Button ID="btnActualizar" runat="server" Text="Actualizar Dueño" OnClick="ActualizarDueño_Click" />
+            </div>
+            <!-- Botón para redirigir a otra página -->
+            <div class="form-section">
+                <asp:Button ID="btnMascota" runat="server" Text="Gestion Mascota" OnClick="Mascotas_Click" />
+            </div> </div>
+    </form></body>
 </html>
-
